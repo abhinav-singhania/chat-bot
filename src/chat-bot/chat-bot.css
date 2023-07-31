@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  max-width: 400px;
+  width: 100%;
+  padding: 0px 8px 8px 8px;
+  box-shadow: rgba(0, 0, 0, 0.1) 3px 9px 15px 0px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px;
+  background-color: white;
+  border-radius: 12px;
+}
+
+.messages {
+  width: 100%;
+  margin-bottom: 10px;
+  overflow-y: auto;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-container {
+  display: flex;
+  align-items: center;
+  max-width: 400px;
+  width: 100%;
+
+}
+
+.user-input {
+  width: 100%;
+}
+
+.user-container button {
+  margin-left: 12px;
+}
+
+.header {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 8px;
+  background-color: rgba(103, 140, 242, 0.75);
+  border-radius: 8px 8px 0px 0px
+}
+
+.robot {
+  background-color: rgb(241, 143, 37);
+  border-radius: 50%;
+  color: white;
+  padding: 8px;
+  margin-right: 8px;
+}

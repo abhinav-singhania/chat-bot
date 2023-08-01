@@ -1,0 +1,16 @@
+.message {
+  padding: 8px;
+  margin: 8px;
+  max-width: 300px;
+  border-radius: 8px;
+  
+}
+
+.bot {
+  background-color: #cce5ff;
+}
+
+.user {
+  background-color: #f5f5f5;
+  align-self: flex-end;
+}

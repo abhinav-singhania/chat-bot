@@ -70,3 +70,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Build Docker Image
+
+### docker build -t chatbot-ui .
+
+### docker run -p 8080:80 chatbot-ui
+
+Run the Docker Container Locally:
+You can test the Docker container locally using the following command:

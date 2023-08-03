@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import axios from "axios";
 import "./chat-bot.css";
 import ChatBotMessage from "./chat-bot-message/chat-bot-message";
@@ -15,6 +15,7 @@ const Chatbot = () => {
     },
   ]);
   const [inputText, setInputText] = useState("");
+  const allMessages = useRef({userMessages: [], botMessages: []});
 
   const apiUrl = "https://api-inference.huggingface.co/models/microsoft/DialoGPT-large";
 
@@ -22,15 +23,22 @@ const Chatbot = () => {
   const handleUserInput = () => {
     if (inputText.trim() === "") return;
     setMessages(messages => [...messages, { text: inputText, sender: "user" }]);
+    allMessages.current.userMessages.push(inputText);
     handleGPTInput(inputText);    
     setInputText("");
   };
 
   const handleGPTInput = async (inputText) => {
     try {
+      // let userMessages = messages.filter((message) => message.sender === "user");
       const response = await axios.post(apiUrl, {
-        inputs: inputText,
+        inputs: {
+          past_user_inputs: allMessages.current.userMessages,
+          generated_responses: allMessages.current.botMessages,
+          text: inputText
+        } 
       });
+      allMessages.current.botMessages.push(response.data.generated_text);
       const botResponse = response.data.generated_text;
       setMessages(messages => [...messages, { text: botResponse, sender: "bot" }]);
     } catch (error) {

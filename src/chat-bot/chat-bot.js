@@ -16,7 +16,7 @@ const Chatbot = () => {
   ]);
   const [inputText, setInputText] = useState("");
 
-  const apiUrl = "https://api-inference.huggingface.co/models/gpt2";
+  const apiUrl = "https://api-inference.huggingface.co/models/microsoft/DialoGPT-large";
 
 
   const handleUserInput = () => {
@@ -31,7 +31,7 @@ const Chatbot = () => {
       const response = await axios.post(apiUrl, {
         inputs: inputText,
       });
-      const botResponse = response.data[0].generated_text;
+      const botResponse = response.data.generated_text;
       setMessages(messages => [...messages, { text: botResponse, sender: "bot" }]);
     } catch (error) {
       console.error("Error fetching response from the model:", error);
